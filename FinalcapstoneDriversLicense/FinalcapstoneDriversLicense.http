@@ -1,0 +1,6 @@
+@FinalcapstoneDriversLicense_HostAddress = http://localhost:5070
+
+GET {{FinalcapstoneDriversLicense_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
