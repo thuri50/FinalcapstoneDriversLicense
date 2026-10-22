@@ -98,6 +98,8 @@ app.MapControllers();
 ///Seed roles and a development staff account. Change the password before deployment.
 using (var scope = app.Services.CreateScope())
 {
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>(); // Replace with your actual DbContext class name
+    dbContext.Database.Migrate(); // Or dbContext.Database.EnsureCreated();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
     foreach (var role in new[] { "Applicant", "Staff", "Admin" })
